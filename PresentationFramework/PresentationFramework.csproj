@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11E1E4B7-F284-4152-90B4-0482D9A47136}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>WpfExampleApplication.PresentationFramework</RootNamespace>
+    <AssemblyName>WpfExampleApplication.PresentationFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Button\ButtonViewModel.cs" />
+    <Compile Include="Command\AlwaysCanExecute.cs" />
+    <Compile Include="Command\AlwaysExecutableRelayCommand.cs" />
+    <Compile Include="Command\AsyncCommand.cs" />
+    <Compile Include="Command\AsyncCommandBase.cs" />
+    <Compile Include="Command\AsyncCommandFactory.cs" />
+    <Compile Include="Command\IAsyncCommand.cs" />
+    <Compile Include="Command\INotifyCanExecute.cs" />
+    <Compile Include="IPresentationFrameworkServiceFacade.cs" />
+    <Compile Include="PresentationFrameworkServiceFacade.cs" />
+    <Compile Include="Shell\Dialog\Dialog.xaml.cs">
+      <DependentUpon>Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Dialog\DialogFactory.cs" />
+    <Compile Include="Shell\Dialog\DialogButtonViewModel.cs" />
+    <Compile Include="Shell\Dialog\DialogButtonViewModelBase.cs" />
+    <Compile Include="Shell\Dialog\DialogCancelButtonViewModel.cs" />
+    <Compile Include="Shell\Dialog\DialogPresenter.cs" />
+    <Compile Include="Shell\Dialog\DialogViewModel.cs" />
+    <Compile Include="Shell\Dialog\ExceptionDialogContent.xaml.cs">
+      <DependentUpon>ExceptionDialogContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Dialog\ExceptionDialogContentViewModel.cs" />
+    <Compile Include="Shell\Dialog\IDialog.cs" />
+    <Compile Include="Shell\Dialog\IDialogPresenter.cs" />
+    <Compile Include="Shell\Dialog\InputDialogViewModel.cs" />
+    <Compile Include="Shell\FatalHandler\FatalDialogOkButtonViewModel.cs" />
+    <Compile Include="Shell\IShellServices.cs" />
+    <Compile Include="Shell\WaitScreen\IWaitScreenShower.cs" />
+    <Compile Include="Shell\FatalHandler\FatalHandler.cs" />
+    <Compile Include="Shell\FatalHandler\IFatalHandler.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Shell\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\ShellServices.cs" />
+    <Compile Include="Shell\ShellViewModel.cs" />
+    <Compile Include="Shell\WaitScreen\WaitScreenShower.cs" />
+    <Compile Include="Shell\WaitScreen\WaitScreenVm.cs" />
+    <Compile Include="Command\CommandTaskCompletion.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlobalResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\Dialog\Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Dialog\ExceptionDialogContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Shell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

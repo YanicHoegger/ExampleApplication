@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:waitScreen="clr-namespace:WpfExampleApplication.PresentationFramework.Shell.WaitScreen"
+                    xmlns:dialog="clr-namespace:WpfExampleApplication.PresentationFramework.Shell.Dialog"
+                    xmlns:button="clr-namespace:WpfExampleApplication.PresentationFramework.Button">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="GlobalResources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type waitScreen:WaitScreenVm}">
+        <mah:ProgressRing />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dialog:DialogViewModel}">
+        <dialog:Dialog/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type button:ButtonViewModel}">
+        <Button Content="{Binding Content}" Command="{Binding Command}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dialog:DialogButtonViewModelBase}">
+        <Button Content="Ok" Command="{Binding OkCommand}" HorizontalAlignment="Right" Style="{StaticResource DialogButtonStyle}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dialog:DialogCancelButtonViewModel}">
+        <DataTemplate.Resources>
+            <Style TargetType="Button" BasedOn="{StaticResource DialogButtonStyle}"/>
+        </DataTemplate.Resources>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Ok" Command="{Binding OkCommand}" />
+            <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dialog:ExceptionDialogContentViewModel}">
+        <dialog:ExceptionDialogContent/>
+    </DataTemplate>
+
+</ResourceDictionary>
